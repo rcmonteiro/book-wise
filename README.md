@@ -1,40 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Book Wise
 
-## Getting Started
+Desafio de fim de curso de 50h da formação React na Rocketseat.
 
-First, run the development server:
+O material do desafio é este [Figma](https://www.figma.com/file/n97n6oIkXEVXblJPO3xYob/BookWise--%E2%80%A2-Desafio-React-(Copy)?type=design&node-id=547-2793&mode=design&t=IUzJ7E5MQ425xR0L-0).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Tomei algumas decisões para montar o projeto:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Estilização com Tailwind e Tailwind Variants
+- Next.js como framework para servir a aplicação
+- Typescript, para ficar tudo bem tipado
+- Front com React, e Back com API routes do Next
+- Autenticação com NextAuth.js
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Destaques
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Desenho dos componentes
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Componentes de UI bem estruturados e dinâmicos, para facilitar a estilização da aplicação, usando o `tailwind-variants` para ficar mais organizado que muitas classes em elementos HTML, exemplo para o componente básico de texto, que aceita um atributo para ser servido em diferentes elementos HTML:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```javascript
+import { ComponentProps, ElementType } from 'react'
 
-## Learn More
+import { tv, type VariantProps } from 'tailwind-variants'
 
-To learn more about Next.js, take a look at the following resources:
+export const text = tv({
+  base: 'font-default text-gray-200  leading-base',
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  variants: {
+    size: {
+      md: 'text-md',
+      sm: 'text-sm',
+    },
+  },
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+  defaultVariants: {
+    size: 'md',
+  },
+})
 
-## Deploy on Vercel
+export interface TextProps
+  extends ComponentProps<'span'>,
+    VariantProps<typeof text> {
+  as?: ElementType
+}
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+export function Text({
+  as: Tag = 'span',
+  size,
+  className,
+  ...props
+}: TextProps) {
+  return <Tag {...props} className={text({ size, className })} />
+}
+``` 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

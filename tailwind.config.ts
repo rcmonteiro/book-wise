@@ -11,6 +11,9 @@ const config: Config = {
       fontFamily: {
         default: 'Nunito Sans, sans-serif',
       },
+      backgroundImage: {
+        sidebar: "url('/sidebar.png')",
+      },
     },
 
     fontSize: {
@@ -22,9 +25,17 @@ const config: Config = {
       '2xl': '1.5rem',
     },
 
+    lineHeight: {
+      shorter: '125%',
+      short: '140%',
+      base: '160%',
+      tall: '180%',
+    },
+
     colors: {
       white: '#FFFFFF',
       black: '#000000',
+      danger: '#EB5757',
 
       green: {
         100: '#50B2C0',
@@ -59,6 +70,14 @@ const config: Config = {
         7: '1.75rem',
         8: '2rem',
         10: '2.5rem',
+      },
+
+      radii: {
+        xs: '2.5px',
+        sm: '5px',
+        md: '10px',
+        lg: '20px',
+        full: '99999px',
       },
 
       'gradient-vertical': `linear-gradient(180deg, #7FD1CC 0%, #9694F5 100%)`,
