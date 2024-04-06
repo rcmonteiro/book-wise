@@ -1,19 +1,16 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.tsx'],
   theme: {
     extend: {
-      fontFamily: {
-        default: 'Nunito Sans, sans-serif',
-      },
       backgroundImage: {
         sidebar: "url('/sidebar.png')",
       },
+    },
+
+    fontFamily: {
+      default: 'Nunito Sans, sans-serif',
     },
 
     fontSize: {
@@ -36,6 +33,8 @@ const config: Config = {
       white: '#FFFFFF',
       black: '#000000',
       danger: '#EB5757',
+      gradientStart: '#7FD1CC',
+      gradientEnd: '#9694F5',
 
       green: {
         100: '#50B2C0',
@@ -79,9 +78,6 @@ const config: Config = {
         lg: '20px',
         full: '99999px',
       },
-
-      'gradient-vertical': `linear-gradient(180deg, #7FD1CC 0%, #9694F5 100%)`,
-      'gradient-horizontal': `linear-gradient(90deg, #7FD1CC 0%, #9694F5 100%)`,
     },
   },
   plugins: [],

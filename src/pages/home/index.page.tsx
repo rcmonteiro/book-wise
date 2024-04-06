@@ -3,11 +3,11 @@ import { Heading } from '@/components/ui/heading'
 
 export default function Register() {
   return (
-    <main className="flex p-5">
+    <main className="overflow-scroll">
       <Sidebar />
-      <div>
+      <section className="ml-[232px] p-5">
         <Heading size="lg">Explorar</Heading>
-      </div>
+      </section>
     </main>
   )
 }

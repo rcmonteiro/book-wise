@@ -1,7 +1,8 @@
 import logo from '@/assets/logo.svg'
-import { Binoculars, ChartLineUp } from '@phosphor-icons/react'
+import { LineChart, Telescope } from 'lucide-react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { Avatar } from '../ui/avatar'
 import { ButtonLogInOut } from './components/button-log-in-out'
 import { NavLink } from './components/navlink'
 
@@ -9,16 +10,16 @@ export const Sidebar = () => {
   const router = useRouter()
 
   const pages = [
-    { label: 'Início', href: '/home', icon: <ChartLineUp /> },
-    { label: 'Explorar', href: '/explore', icon: <Binoculars /> },
+    { label: 'Início', href: '/home', icon: <LineChart /> },
+    { label: 'Explorar', href: '/explore', icon: <Telescope /> },
   ]
 
   const signed = true
 
   return (
-    <div className="flex flex-col w-[232px] bg-sidebar justify-center rounded-lg h-screen bg-top bg-gray-700 px-12 py-10 gap-16">
+    <aside className="fixed inset-5 flex flex-col justify-center gap-16 bg-gray-700 bg-sidebar bg-cover bg-center px-12 py-10 rounded-lg w-[232px]">
       <Image src={logo} alt="" width={128} height={32} />
-      <nav className="flex flex-col gap-4 flex-1">
+      <nav className="flex flex-col flex-1 gap-4">
         {pages.map((page) => {
           return (
             <NavLink
@@ -32,19 +33,22 @@ export const Sidebar = () => {
           )
         })}
       </nav>
+
       {signed ? (
         <ButtonLogInOut variant="signed">
-          {/* <Image
-            src="http://github.com/rcmonteiro.png"
-            width={32}
-            height={32}
-            alt=""
-          /> */}
-          Ricardo Monteiro
+          <Avatar>
+            <Image
+              src="https://github.com/rcmonteiro.png"
+              width={32}
+              height={32}
+              alt=""
+            />
+          </Avatar>
+          Ricardo
         </ButtonLogInOut>
       ) : (
         <ButtonLogInOut variant="visitor">Fazer login</ButtonLogInOut>
       )}
-    </div>
+    </aside>
   )
 }

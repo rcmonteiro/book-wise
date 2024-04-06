@@ -1,4 +1,4 @@
-import { SignIn } from '@phosphor-icons/react'
+import { LogIn } from 'lucide-react'
 import { ComponentProps, ReactNode } from 'react'
 
 import { tv, type VariantProps } from 'tailwind-variants'
@@ -8,8 +8,8 @@ export const buttonLogInOut = tv({
 
   variants: {
     variant: {
-      visitor: 'text-md [&>svg]:fill-green-100',
-      signed: 'text-sm [&>svg]:fill-danger',
+      visitor: 'text-md [&>svg]:text-green-100',
+      signed: 'text-sm [&>svg]:text-danger',
     },
   },
 
@@ -33,7 +33,7 @@ export function ButtonLogInOut({
   return (
     <button {...props} className={buttonLogInOut({ variant, className })}>
       {children}
-      <SignIn size={20} />
+      <LogIn size={28} />
     </button>
   )
 }

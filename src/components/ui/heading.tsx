@@ -1,5 +1,4 @@
 import { ComponentProps, ElementType } from 'react'
-
 import { tv, type VariantProps } from 'tailwind-variants'
 
 export const heading = tv({

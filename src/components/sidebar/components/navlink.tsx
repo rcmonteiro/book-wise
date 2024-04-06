@@ -8,7 +8,11 @@ export const navlink = tv({
 
   variants: {
     variant: {
-      active: 'text-gray-100 font-bold',
+      active: [
+        'flex text-gray-100 font-bold relative items-center',
+        'before:left-0 before:absolute before:flex before:rounded-md before:w-1 before:h-[24px]',
+        'before:bg-gradient-to-b before:from-gradientStart before:to-gradientEnd',
+      ],
       default: 'text-gray-400',
     },
   },
