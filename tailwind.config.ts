@@ -7,6 +7,13 @@ const config: Config = {
       backgroundImage: {
         sidebar: "url('/sidebar.png')",
       },
+      gridTemplateColumns: {
+        dashboard: '14.5rem 1fr',
+        card: '6.75rem 1fr',
+      },
+      maxWidth: {
+        dashboard: '1600px',
+      },
     },
 
     fontFamily: {
@@ -56,19 +63,6 @@ const config: Config = {
         600: '#252D4A',
         700: '#181C2A',
         800: '#0E1116',
-      },
-
-      spacing: {
-        px: '1px',
-        1: '0.25rem',
-        2: '0.5rem',
-        3: '0.75rem',
-        4: '1rem',
-        5: '1.25rem',
-        6: '1.5rem',
-        7: '1.75rem',
-        8: '2rem',
-        10: '2.5rem',
       },
 
       radii: {

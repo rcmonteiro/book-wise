@@ -1,13 +1,15 @@
+'use client'
+
 import logo from '@/assets/logo.svg'
 import { LineChart, Telescope } from 'lucide-react'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import { Avatar } from '../ui/avatar'
 import { ButtonLogInOut } from './components/button-log-in-out'
 import { NavLink } from './components/navlink'
 
 export const Sidebar = () => {
-  const router = useRouter()
+  const pathname = usePathname()
 
   const pages = [
     { label: 'Início', href: '/home', icon: <LineChart /> },
@@ -17,15 +19,15 @@ export const Sidebar = () => {
   const signed = true
 
   return (
-    <aside className="fixed inset-5 flex flex-col justify-center gap-16 bg-gray-700 bg-sidebar bg-cover bg-center px-12 py-10 rounded-lg w-[232px]">
+    <aside className="flex flex-col bg-sidebar bg-cover px-12 py-10 rounded-lg">
       <Image src={logo} alt="" width={128} height={32} />
-      <nav className="flex flex-col flex-1 gap-4">
+      <nav className="flex flex-col flex-1 gap-4 mt-16">
         {pages.map((page) => {
           return (
             <NavLink
               key={page.href}
               href={page.href}
-              variant={router.pathname === page.href ? 'active' : 'default'}
+              variant={pathname === page.href ? 'active' : 'default'}
             >
               {page.icon}
               {page.label}

@@ -10,26 +10,26 @@ import Image from 'next/image'
 
 export default function Register() {
   return (
-    <div className="flex  w-full h-screen p-5">
-      <div className="relative w-[598px] hidden lg:block">
+    <div className="flex p-5 w-full h-screen">
+      <div className="lg:block relative hidden w-[598px]">
         <Image
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          className="top-1/2 left-1/2 absolute transform -translate-x-1/2 -translate-y-1/2"
           src={logo}
           width={232}
           height={58}
           alt=""
         />
         <Image
-          className="rounded-md h-full object-cover"
+          className="rounded-md w-full h-auto object-cover"
           src={registerImage}
           width={598}
           height={912}
           alt=""
         />
       </div>
-      <div className="flex flex-1 items-center justify-center">
-        <div className="flex flex-col gap-4 w-[372px] m-auto">
-          <div className="flex flex-col mb-6 gap-1">
+      <div className="flex flex-1 justify-center items-center">
+        <div className="flex flex-col gap-4 m-auto w-[372px]">
+          <div className="flex flex-col gap-1 mb-6">
             <Heading size="lg">Boas vindas!</Heading>
             <Text as="p">Faça seu login ou acesse como visitante.</Text>
           </div>

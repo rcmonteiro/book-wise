@@ -2,13 +2,14 @@ import { ComponentProps, ElementType } from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 export const heading = tv({
-  base: 'font-default text-gray-100 leading-short font-bold',
+  base: 'font-default text-gray-100 leading-short font-bold flex gap-3 [&>svg]:h-8 [&>svg]:text-green-100 items-center',
 
   variants: {
     size: {
-      lg: 'text-lg',
-      md: 'text-md',
+      lg: 'text-xl',
+      md: 'text-lg',
       sm: 'text-sm',
+      xs: 'text-md',
     },
   },
 
