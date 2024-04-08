@@ -1,14 +1,15 @@
 import Image from 'next/image'
-import { Avatar } from '../ui/avatar'
+import Link from 'next/link'
 import { Box } from '../ui/box'
 import { Heading } from '../ui/heading'
+import { Stars } from '../ui/stars'
 import { Text } from '../ui/text'
+import { UserHeader } from '../user-header'
 
 interface BookProps {
   title: string
   author?: string
   coverUrl: string
-  description?: string
 }
 
 interface UserProps {
@@ -26,28 +27,53 @@ interface CardProps {
   user?: UserProps
   rating?: RatingProps
   updatedAt?: Date
-  variant: 'small' | 'review'
+  variant: 'sidebar' | 'review'
 }
 
-export const Card = ({ book, user, rating, updatedAt }: CardProps) => {
+export const Card = ({ book, rating, variant, user, updatedAt }: CardProps) => {
   return (
-    <Box>
-      <div>
-        {!!user && (
-          <div>
-            <Avatar />
-            <div>
-              <Heading>{user.name}</Heading>
-              <Text>{updatedAt?.toISOString()}</Text>
-            </div>
+    <Box className="gap-8">
+      {!!user && (
+        <div className="flex justify-between">
+          <UserHeader className="mb-8" updatedAt={updatedAt} user={user} />
+
+          {!!rating?.stars && variant === 'review' && (
+            <Stars rating={rating.stars} />
+          )}
+        </div>
+      )}
+      <div
+        className={`grid ${variant === 'review' ? 'grid-cols-book' : 'grid-cols-bookSmall'} gap-5`}
+      >
+        <Image
+          src={book.coverUrl}
+          alt=""
+          width={variant === 'review' ? 108 : 64}
+          height={152}
+        />
+        <div className="flex flex-col justify-between">
+          <div className="flex flex-col">
+            <Heading size="xs">{book.title}</Heading>
+            <Text size="sm" className="text-gray-400">
+              {book.author}
+            </Text>
           </div>
-        )}
-        <div>estrelas</div>
-        <div className="grid grid-cols-card [&>img]:row-span-3 items-start gap-3 [&>span]:text-gray-400">
-          <Image src={book.coverUrl} alt="" width={108} height={152} />
-          <Heading size="xs">{book.title}</Heading>
-          <Text size="sm">{book.author}</Text>
-          {!!rating && <Text size="sm">{rating.review}</Text>}
+          {!!rating && variant === 'review' && (
+            <Text
+              as="span"
+              size="sm"
+              className="text-gray-300 inline align-bottom"
+            >
+              {rating?.review}
+              {` `}
+              <Link className="text-purple-100 font-semibold" href="#">
+                ver mais
+              </Link>
+            </Text>
+          )}
+          {!!rating?.stars && variant === 'sidebar' && (
+            <Stars rating={rating.stars} />
+          )}
         </div>
       </div>
     </Box>

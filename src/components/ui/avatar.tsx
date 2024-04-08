@@ -1,5 +1,6 @@
 import { CircleUserRound } from 'lucide-react'
-import { ComponentProps, ReactNode } from 'react'
+import Image from 'next/image'
+import { ComponentProps } from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 export const avatar = tv({
@@ -13,13 +14,21 @@ export const avatar = tv({
 export interface AvatarProps
   extends ComponentProps<'div'>,
     VariantProps<typeof avatar> {
-  children?: ReactNode
+  user: {
+    name: string
+    avatarUrl?: string
+  }
+  size?: number
 }
 
-export function Avatar({ className, children, ...props }: AvatarProps) {
+export function Avatar({ user, size = 32, className, ...props }: AvatarProps) {
   return (
     <div {...props} className={avatar({ className })}>
-      {typeof children === 'object' ? children : <CircleUserRound size={22} />}
+      {user?.avatarUrl ? (
+        <Image src={user.avatarUrl} width={size} height={size} alt="" />
+      ) : (
+        <CircleUserRound size={22} />
+      )}
     </div>
   )
 }

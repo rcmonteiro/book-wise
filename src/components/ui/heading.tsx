@@ -6,10 +6,10 @@ export const heading = tv({
 
   variants: {
     size: {
-      lg: 'text-xl',
-      md: 'text-lg',
-      sm: 'text-sm',
-      xs: 'text-md',
+      lg: 'text-2xl',
+      md: 'text-xl',
+      sm: 'text-lg',
+      xs: 'text-base',
     },
   },
 

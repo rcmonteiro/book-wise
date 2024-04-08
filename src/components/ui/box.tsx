@@ -3,7 +3,7 @@ import { ComponentProps, ReactNode } from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 export const box = tv({
-  base: 'rounded-lg flex bg-gray-700',
+  base: 'rounded-lg flex flex-col bg-gray-700',
 
   variants: {
     size: {

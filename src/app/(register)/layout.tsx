@@ -10,7 +10,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${nunito.className} antialiased`}>
-      <body className="bg-gray-800">{children}</body>
+      <body className="bg-gray-800 max-w-register">{children}</body>
     </html>
   )
 }
