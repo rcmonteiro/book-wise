@@ -54,4 +54,6 @@ export function Text({
 }
 ``` 
 
-https://www.googleapis.com/books/v1/volumes?q=fantasy
+### Base de livros
+
+Para dar mais vida ao sistema, fiz um seed de dados usando a API de livros do Google, assim podemos navegar em livros reais completos, para simular a interação para cadastrar reviews
