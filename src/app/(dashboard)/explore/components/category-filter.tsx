@@ -12,7 +12,7 @@ export const CategoryFilter = ({ label, ...props }: CategoryFilterProps) => {
       <Text
         {...props}
         size="md"
-        className="inline border border-purple-100 text-purple-100 rounded-2xl px-4 py-1 data-[current]:text-gray-100 data-[current]:bg-purple-200 data-[current]:border-purple-200"
+        className="inline border border-purple-100 text-purple-100 rounded-2xl px-4 py-1 data-[current=true]:text-gray-100 data-[current=true]:bg-purple-200 data-[current=true]:border-purple-200"
       >
         {label}
       </Text>

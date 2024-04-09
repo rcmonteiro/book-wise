@@ -1,3 +1,4 @@
+import '@/lib/dayjs'
 import dayjs from 'dayjs'
 import { ComponentProps } from 'react'
 import { VariantProps, tv } from 'tailwind-variants'

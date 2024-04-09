@@ -121,7 +121,7 @@ const config = {
         bookSmall: '6.75rem 1fr',
       },
       maxWidth: {
-        dashboard: '1600px',
+        container: '1600px',
       },
     },
   },

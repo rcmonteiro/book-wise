@@ -2,29 +2,24 @@ import { Box } from '@/components/ui/box'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { Heading } from '@/components/ui/heading'
-import { SheetClose, SheetContent } from '@/components/ui/sheet'
+import { SheetContent } from '@/components/ui/sheet'
 import { Stars } from '@/components/ui/stars'
 import { Text } from '@/components/ui/text'
 import { UserHeader } from '@/components/user-header'
-import { BookOpen, Bookmark, X } from 'lucide-react'
+import { BookOpen, Bookmark } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import githubIcon from '../../../../../public/assets/icons/github.svg'
 import googleIcon from '../../../../../public/assets/icons/google.svg'
-import rocketIcon from '../../../../../public/assets/icons/rocket.svg'
 import { testBook, testRating, testUser } from '../../../../../test-consts'
 import { BookInfo } from './book-info'
+import { FormRating } from './form-rating'
 
 export const BookDetail = () => {
   return (
     <>
-      <SheetContent className="bg-gray-800 border-0 px-12 w-[660px] sm:w-[660px] overflow-y-scroll">
+      <SheetContent className="border-0 px-12 w-[660px] sm:w-[660px] overflow-y-scroll">
         <Dialog>
-          <div className="flex justify-end">
-            <SheetClose asChild>
-              <X size={24} className="text-gray-400" />
-            </SheetClose>
-          </div>
           <Box className="mt-4">
             <div className="grid grid-cols-book gap-5">
               <Image src={testBook.coverUrl} alt="" width={108} height={152} />
@@ -65,6 +60,7 @@ export const BookDetail = () => {
                 </Text>
               </DialogTrigger>
             </div>
+            <FormRating />
 
             {Array.from({ length: 10 }).map((_, index) => {
               return (
@@ -95,9 +91,9 @@ export const BookDetail = () => {
               )
             })}
           </div>
-          <DialogContent className="bg-gray-700 border-0 justify-center">
+          <DialogContent className="bg-gray-700 py-12 px-16 border-0 justify-center">
             <div className="flex flex-col min-w-96 gap-4">
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1 items-center mb-4">
                 <Heading size="lg">Boas vindas!</Heading>
                 <Text as="p">Faça seu login ou acesse como visitante.</Text>
               </div>
@@ -108,10 +104,6 @@ export const BookDetail = () => {
               <Button>
                 <Image src={githubIcon} alt="" width={32} height={32} />
                 Entrar com GitHub
-              </Button>
-              <Button>
-                <Image src={rocketIcon} alt="" width={32} height={32} />
-                Acessar como visitante
               </Button>
             </div>
           </DialogContent>

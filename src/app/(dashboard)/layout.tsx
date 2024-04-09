@@ -12,11 +12,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${nunito.className} antialiased`}>
-      <body className="bg-gray-800">
+      <body className="bg-gray-800 dark">
         <div className="grid grid-cols-dashboard gap-4 xl:gap-12 2xl:gap-24 h-screen">
           <Sidebar />
           <main className="flex flex-1 w-full items-start overflow-y-scroll">
-            <div className="flex flex-col py-14 px-5 max-w-dashboard w-full">
+            <div className="flex flex-col py-14 px-5 max-w-screen-2xl w-full">
               {children}
             </div>
           </main>
