@@ -20,7 +20,8 @@
     "paths": {
       "@/*": [
         "./src/*"
-      ]
+      ],
+      "auth": ["./src/auth"]      
     },
     "plugins": [
       {
@@ -33,7 +34,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/_middleware.ts.bk"  ],
   "exclude": [
     "node_modules"
   ]

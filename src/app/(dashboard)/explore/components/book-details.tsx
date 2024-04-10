@@ -1,5 +1,6 @@
+import { BookType } from '@/app/api/books/route'
 import { Box } from '@/components/ui/box'
-import { Button } from '@/components/ui/button'
+import { CustomButton } from '@/components/ui/custom-button'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { Heading } from '@/components/ui/heading'
 import { SheetContent } from '@/components/ui/sheet'
@@ -11,23 +12,29 @@ import Image from 'next/image'
 import Link from 'next/link'
 import githubIcon from '../../../../../public/assets/icons/github.svg'
 import googleIcon from '../../../../../public/assets/icons/google.svg'
-import { testBook, testRating, testUser } from '../../../../../test-consts'
+import { testRating, testUser } from '../../../../../test-consts'
 import { BookInfo } from './book-info'
 import { FormRating } from './form-rating'
 
-export const BookDetail = () => {
+export const BookDetail = ({
+  title,
+  coverUrl,
+  author,
+  category,
+  totalPages,
+}: BookType) => {
   return (
     <>
       <SheetContent className="border-0 px-12 w-[660px] sm:w-[660px] overflow-y-scroll">
         <Dialog>
           <Box className="mt-4">
             <div className="grid grid-cols-book gap-5">
-              <Image src={testBook.coverUrl} alt="" width={108} height={152} />
+              <Image src={coverUrl} alt="" width={108} height={152} />
               <div className="flex flex-col justify-between">
                 <div className="flex flex-col">
-                  <Heading size="sm">{testBook.title}</Heading>
+                  <Heading size="sm">{title}</Heading>
                   <Text size="md" className="text-gray-400">
-                    {testBook.author}
+                    {author}
                   </Text>
                 </div>
                 <div className="flex-1 content-end">
@@ -39,12 +46,12 @@ export const BookDetail = () => {
               </div>
             </div>
             <div className="border-t border-gray-600 mt-10 pt-6 flex gap-14">
+              <BookInfo label="Categoria" value={category} icon={Bookmark} />
               <BookInfo
-                label="Categoria"
-                value="Computação, educação"
-                icon={Bookmark}
+                label="Páginas"
+                value={String(totalPages)}
+                icon={BookOpen}
               />
-              <BookInfo label="Páginas" value="160" icon={BookOpen} />
             </div>
           </Box>
 
@@ -97,14 +104,14 @@ export const BookDetail = () => {
                 <Heading size="lg">Boas vindas!</Heading>
                 <Text as="p">Faça seu login ou acesse como visitante.</Text>
               </div>
-              <Button>
+              <CustomButton>
                 <Image src={googleIcon} alt="" width={32} height={32} />
                 Entrar com Google
-              </Button>
-              <Button>
+              </CustomButton>
+              <CustomButton>
                 <Image src={githubIcon} alt="" width={32} height={32} />
                 Entrar com GitHub
-              </Button>
+              </CustomButton>
             </div>
           </DialogContent>
         </Dialog>

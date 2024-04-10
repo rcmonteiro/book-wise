@@ -1,8 +1,6 @@
 import { prisma } from '../src/lib/prisma'
 
 const seed = async () => {
-  console.log('running seed...')
-
   await prisma.book.deleteMany()
 
   const fetchBooks = async (index: number) => {
@@ -50,6 +48,5 @@ const seed = async () => {
 }
 
 seed().then(() => {
-  console.log('seed was completed!')
   prisma.$disconnect()
 })

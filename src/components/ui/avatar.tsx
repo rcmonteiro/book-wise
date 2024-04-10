@@ -14,18 +14,21 @@ export const avatar = tv({
 export interface AvatarProps
   extends ComponentProps<'div'>,
     VariantProps<typeof avatar> {
-  user: {
-    name: string
-    avatarUrl?: string
-  }
+  avatar_url?: string | null
   size?: number
 }
 
-export function Avatar({ user, size = 32, className, ...props }: AvatarProps) {
+export function Avatar({
+  avatar_url = null,
+  size = 32,
+  className,
+  ...props
+}: AvatarProps) {
+  console.log(avatar_url)
   return (
     <div {...props} className={avatar({ className })}>
-      {user?.avatarUrl ? (
-        <Image src={user.avatarUrl} width={size} height={size} alt="" />
+      {avatar_url ? (
+        <Image src={avatar_url} width={size} height={size} alt="" />
       ) : (
         <CircleUserRound size={22} />
       )}

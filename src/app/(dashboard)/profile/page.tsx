@@ -1,3 +1,5 @@
+'use client'
+
 import * as Wrap from '@/components/container'
 import { Header } from '@/components/header'
 import { SearchInput } from '@/components/search-input'
@@ -11,18 +13,21 @@ import {
   UserRound,
   UsersRound,
 } from 'lucide-react'
+import { useState } from 'react'
 import { testUser } from '../../../../test-consts'
 import { UserReviewList } from './components/user-review-list'
 import { UserStats } from './components/user-stats'
 
 export default function Register() {
+  const [searchKeyword, setSearchKeyword] = useState('')
+  console.log(searchKeyword)
   return (
     <>
       <Header title="Perfil" icon={UserRound} />
       <Wrap.Root>
         <Wrap.Main>
           <div className="flex flex-col flex-1">
-            <SearchInput />
+            <SearchInput onChangeValue={setSearchKeyword} />
             <UserReviewList />
           </div>
         </Wrap.Main>

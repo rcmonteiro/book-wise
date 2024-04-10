@@ -1,5 +1,5 @@
 import { Box } from '@/components/ui/box'
-import { Button } from '@/components/ui/button'
+import { CustomButton } from '@/components/ui/custom-button'
 import { TextArea } from '@/components/ui/textarea'
 import { UserHeader } from '@/components/user-header'
 import { Check, X } from 'lucide-react'
@@ -19,12 +19,12 @@ export const FormRating = () => {
         placeholder="Escreva sua avaliação"
       />
       <div className="ml-auto mt-3 flex gap-2">
-        <Button variant="icon" className="text-purple-100">
+        <CustomButton variant="icon" className="text-purple-100">
           <X strokeWidth={1} size={24} />
-        </Button>
-        <Button variant="icon" className="text-green-100">
+        </CustomButton>
+        <CustomButton variant="icon" className="text-green-100">
           <Check strokeWidth={1} size={24} />
-        </Button>
+        </CustomButton>
       </div>
     </Box>
   )
